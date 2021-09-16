@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<table class="table">
+    <thead >
+      <tr>
+        <th scope="col">Sr. No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">DOB</th>
+        <th scope="col">QR COde</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in data %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{data.name}}</td>
+            <td>{{ data.dob }}</td>
+            <td><img src= media/{{data.qr}} alt='Not Found' style="height:20px;width:30px" onclick="open_image('{{data.qr}}')"></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+{% endblock%}
